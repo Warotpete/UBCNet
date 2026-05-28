@@ -6,7 +6,7 @@
 ## Step-by-Step guide to use the product:
 [Video tutorial/demo link](https://youtu.be/Jg0pPHCoGXA)
 
-1. Download and Install Docker Desktop
+1. Download and Install Docker Desktop.
 2. Go to the official Docker website.
    Select the appropriate version for your system (e.g., "Docker Desktop for Windows for AMD64").
 3. Download the installer.
