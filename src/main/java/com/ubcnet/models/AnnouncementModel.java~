@@ -1,0 +1,98 @@
+package com.ubcnet.models;
+
+import java.time.LocalDateTime;
+
+public class AnnouncementModel {
+
+    // Initializing parameters
+    private int id;
+    private String title;
+    private String message;
+    private LocalDateTime created;
+    private LocalDateTime updated;
+
+    // No argument constructor
+    public AnnouncementModel() {
+    }
+
+    // All arguments constructor
+//    public AnnouncementModel(int id, String title, String message, LocalDateTime created, LocalDateTime updated) {
+    public AnnouncementModel(int id, String title, String message) {
+        this.id = id;
+        this.title = title;
+        this.message = message;
+//        this.created = created;
+//        this.updated = updated;
+    }
+
+    // Getter for Announcement Id
+    public int getId() {
+        return id;
+    }
+    // Setter for Announcement Id
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    // Getter for Announcement title
+    public String getTitle() {
+        return title;
+    }
+    // Setter for Announcement title
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    // Getter for Announcement message
+    public String getMessage() {
+        return message;
+    }
+    // Setter for Announcement message
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    // Getter for Announcement Posting Time
+    public LocalDateTime getCreated() {
+        return created;
+    }
+    // Setter for Announcement Posting Time
+    public void setCreated(LocalDateTime created) {
+        this.created = created;
+    }
+
+    // Getter for Announcement Updating Time
+    public LocalDateTime getUpdated() {
+        return updated;
+    }
+    // Setter for Announcement Updating Time
+    public void setUpdated(LocalDateTime updated) {
+        this.updated = updated;
+    }
+
+    // Override for Hashcode and Equals
+
+    /**
+     * Compares the specified Object o with this announcementModel for equality
+     *
+     * @param o
+     * @return true if the specified Object o is equal to this announcementModel
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AnnouncementModel model)) return false;
+
+        return id == model.id;
+    }
+
+    /**
+     * Returns the hashcode for this announcementModel
+     *
+     * @return the hashcode, which is equal to the id (no two ids should be the same)
+     */
+    @Override
+    public int hashCode() {
+        return id;
+    }
+}

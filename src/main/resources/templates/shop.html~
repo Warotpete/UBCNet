@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>UBCNet - Shop</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="site-title">
+            <h1>UBCNet</h1>
+        </div>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/announcements">Announcements</a>
+            <a href="/housing">Housing</a>
+            <a href="/shop">Shop</a>
+            <a href="/post">Post</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <h2>Shop Listings</h2>
+    <ul>
+        <div class="shop-container">
+            <div th:each="shop : ${shop}">
+                <div class="section shop-section page-box">
+                    <h3  class="title" th:text="${shop['title']}"></h3>
+                    <img th:src="${shop['image']}" alt="Shop Image" class="output-image" />
+                    <p style="text-align: left;" class="description-header">Description</p>
+                    <div class="description-box">
+                        <p class="description-text" th:text="${shop['description']}"></p>
+                    </div>
+                    <p th:text="'Cost: $' + ${shop['price']}"></p>
+                    <p th:text="'Condition: ' + ${shop['condition']}"></p>
+                    <p th:text="'Contact the Seller at ' + ${shop['email']}"></p>
+                    <small>Created: <span th:text="${shop['created']}"></span></small>
+                </div>
+            </div>
+        </div>
+    </ul>
+</main>
+</body>
+</html>

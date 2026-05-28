@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>UBCNet - Announcements</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="site-title">
+            <h1>UBCNet</h1>
+        </div>
+        <!-- Navigation bar -->
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/announcements">Announcements</a>
+            <a href="/housing">Housing</a>
+            <a href="/shop">Shop</a>
+            <a href="/post">Post</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <h2>Recent Announcements</h2>
+    <ul>
+        <!-- Loop to get all the elements for each all the announcements -->
+        <div class="announcements-container">
+            <div th:each="announcement : ${announcements}">
+                <div style="height: 150px;" class="section announcements-section page-box">
+                    <!-- Title -->
+                    <h3 class="title" th:text="${announcement['title']}"></h3>
+
+                    <!-- Message -->
+                    <p class="message-box" th:text="${announcement['message']}"></p>
+
+                    <!-- Created time -->
+                    <small>Created: <span th:text="${announcement['created']}"></span></small>
+                </div>
+            </div>
+        </div>
+    </ul>
+
+</main>
+</body>
+</html>

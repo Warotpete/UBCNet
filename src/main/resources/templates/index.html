@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>UBCNet - Home</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="site-title">
+            <h1>UBCNet</h1>
+        </div>
+        <!-- Navigation bar -->
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/announcements">Announcements</a>
+            <a href="/housing">Housing</a>
+            <a href="/shop">Shop</a>
+            <a href="/post">Post</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <!-- Search Section -->
+    <div class="search">
+        <input type="text" placeholder="Search">
+    </div>
+
+    <h2>Check Out Recent Posts!</h2>
+
+
+    <!-- Main Sections -->
+    <div class="main-container">
+        <!-- Shop Section -->
+        <div class="section shop-section">
+            <a href="/shop" class="section-title">Shop</a>
+            <h4 class="sub-title">New Posts</h4>
+            <!-- Post Boxes loop to get all the elements for each post type -->
+            <div class="posts-container scrollable">
+                <div class="post-box" th:each="shop : ${shop}">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <!-- Display image then display the title of the post -->
+                        <img class="frontpage-image" style="border: 4px solid black;"
+                             th:src="${shop['image']}" alt="Post Image" />
+                        <a class="section-link" th:href="@{/shop}" style="text-decoration: none;
+                        color: #4B0082; margin-top: 10px;" th:text="${shop['title']}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Announcements Section -->
+        <div class="section announcements-section">
+            <a href="/announcements" class="section-title">Announcements</a>
+            <h4 class="sub-title">New Posts</h4>
+            <!-- Post Boxes loop to get all the elements for each post type -->
+            <div class="posts-container scrollable">
+                <div class="post-box" th:each="announcement : ${announcements}">
+                    <!-- Display title of the post -->
+                    <a class="section-link" th:href="@{/announcements}"
+                       style="text-decoration: none; color: #E9573F;"
+                       th:text="${announcement['title']}"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Housing Section -->
+        <div class="section housing-section">
+            <a href="/housing" class="section-title">Housing</a>
+            <h4 class="sub-title">New Posts</h4>
+            <!-- Post Boxes loop to get all the elements for each post type -->
+            <div class="posts-container scrollable">
+                <div class="post-box" th:each="housing : ${housing}">
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <!-- Display image then display the title of the post -->
+                        <img class="frontpage-image" style="border: 4px solid black;"
+                             th:src="${housing['image']}" alt="Post Image" />
+                        <a class="section-link" th:href="@{/housing}" style="text-decoration:
+                        none; color: #032B44; margin-top: 10px;" th:text="${housing['title']}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  spring-app:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./src/main/resources/data/announcements.json:/app/data/announcements.json
+      - ./src/main/resources/data/housing.json:/app/data/housing.json
+      - ./src/main/resources/data/shop.json:/app/data/shop.json
+    environment:
+      - ANNOUNCEMENTS_JSON_PATH=/app/data/announcements.json
+      - HOUSING_JSON_PATH=/app/data/housing.json
+      - SHOP_JSON_PATH=/app/data/shop.json
+      - APP_ENV=docker

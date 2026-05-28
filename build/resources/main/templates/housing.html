@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>UBCNet - Housing</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="site-title">
+            <h1>UBCNet</h1>
+        </div>
+        <!-- Navigation bar -->
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/announcements">Announcements</a>
+            <a href="/housing">Housing</a>
+            <a href="/shop">Shop</a>
+            <a href="/post">Post</a>
+        </nav>
+    </div>
+</header>
+<main>
+    <h2>Housing Listings</h2>
+    <ul>
+        <!-- Loop to get all the elements for each all the house listings -->
+        <div class="housing-container">
+            <div th:each="housing : ${housing}">
+                <div id = "housing[${housing.id}]" class="section housing-section page-box">
+                    <!-- Title -->
+                    <h3 class="title" th:text="${housing['title']}"></h3>
+                    <!-- Image -->
+                    <img th:src="${housing['image']}" alt="Housing Image" class="output-image" />
+                    <!-- Description -->
+                    <p style="text-align: left;" class="description-header">Description</p>
+                    <!-- Description Box-->
+                    <div class="description-box">
+                        <p class="description-text" th:text="${housing['description']}"></p>
+                    </div>
+
+                    <!-- Rent, Location, and Contact -->
+                    <div class="info-box">
+                        <p th:text="'Monthly Rent: $' + ${housing['rentPerMonth']}"></p>
+                        <p th:text="'Location: ' + ${housing['location']}"></p>
+                        <p th:text="'Contact the landlord at ' + ${housing['email']}"></p>
+                    </div>
+
+                    <!-- Created time -->
+                    <small>Created: <span th:text="${housing['created']}"></span></small>
+                </div>
+            </div>
+        </div>
+    </ul>
+</main>
+</body>
+</html>
